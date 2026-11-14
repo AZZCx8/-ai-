@@ -53,7 +53,7 @@ jobs:
       - name: Enable Kotlin
         run: |
           cd android
-          grep -q "kotlin-gradle-plugin" build.gradle || sed -i "/dependencies {/a\        classpath 'org.jetbrains.kotlin:gradle-plugin:2.1.0'" build.gradle
+          grep -q "kotlin-gradle-plugin" build.gradle || sed -i "/dependencies {/a\        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0'" build.gradle
           grep -q "kotlin-android" app/build.gradle || sed -i "/apply plugin: 'com.android.application'/a apply plugin: 'kotlin-android'" app/build.gradle
 
       - name: Build debug APK
