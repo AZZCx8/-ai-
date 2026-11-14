@@ -1,0 +1,6 @@
+{
+  "name": "GameMind",
+  "description": "مساعد ألعاب ذكي بالذكاء الاصطناعي لتحليل أداء الجهاز، فحص البنق الحقيقي، تشخيص التقطيع، واقتراح إعدادات الرسومات والحساسية بلهجة خليجية بسيطة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

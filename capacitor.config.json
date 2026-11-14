@@ -1,0 +1,9 @@
+{
+  "appId": "com.sharkboost.app",
+  "appName": "GameMind",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": false
+  }
+}

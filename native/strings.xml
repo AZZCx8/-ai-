@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GameMind</string>
+    <string name="title_activity_main">GameMind</string>
+    <string name="package_name">com.sharkboost.app</string>
+    <string name="custom_url_scheme">com.sharkboost.app</string>
+</resources>

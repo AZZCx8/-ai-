@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --gm-bg: #07080F;
+    --gm-glass: rgba(18, 22, 38, 0.68);
+    --gm-glass-strong: rgba(22, 27, 46, 0.86);
+    --gm-border: rgba(255, 255, 255, 0.1);
+    --gm-neon-purple: #A855F7;
+    --gm-neon-blue: #38BDF8;
+  }
+
+  html {
+    font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+    background-color: var(--gm-bg);
+    color: #F1F5F9;
+    direction: rtl;
+  }
+
+  body {
+    background-color: var(--gm-bg);
+    background-image:
+      radial-gradient(circle at 85% 8%, rgba(168, 85, 247, 0.14), transparent 36%),
+      radial-gradient(circle at 12% 24%, rgba(56, 189, 248, 0.12), transparent 38%),
+      radial-gradient(circle at 50% 95%, rgba(139, 92, 246, 0.08), transparent 45%);
+    background-attachment: fixed;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  .font-brand {
+    font-family: 'Outfit', 'Tajawal', sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .glass-card {
+    background: var(--gm-glass);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--gm-border);
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-dock {
+    background: rgba(10, 12, 22, 0.82);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px -8px rgba(56, 189, 248, 0.28);
+  }
+}

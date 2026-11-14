@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gamemind
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: NODE_ENV=production npx tsx server.ts
+    healthCheckPath: /api/ping
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
