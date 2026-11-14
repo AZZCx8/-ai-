@@ -24,12 +24,12 @@ jobs:
         env:
           VITE_API_BASE_URL: ${{ vars.API_BASE_URL }}
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build
 
       - name: Create fresh Android project
         run: |
-          npm install --no-save "@capacitor/cli@^8" "@capacitor/android@^8"
+          npm install --no-save --legacy-peer-deps "@capacitor/cli@^8" "@capacitor/android@^8"
           rm -rf android
           npx cap add android
           mkdir -p android/app/src/main/java/com/sharkboost/app
@@ -45,4 +45,24 @@ jobs:
               @Override
               public void onCreate(Bundle savedInstanceState) {
                   registerPlugin(SharkBoostPlugin.class);
-                  super.onCreate(savedInstanceStat
+                  super.onCreate(savedInstanceState);
+              }
+          }
+          JAVA
+
+      - name: Enable Kotlin
+        run: |
+          cd android
+          grep -q "kotlin-gradle-plugin" build.gradle || sed -i "/dependencies {/a\        classpath 'org.jetbrains.kotlin:gradle-plugin:2.1.0'" build.gradle
+          grep -q "kotlin-android" app/build.gradle || sed -i "/apply plugin: 'com.android.application'/a apply plugin: 'kotlin-android'" app/build.gradle
+
+      - name: Build debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gamemind-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
