@@ -45,18 +45,4 @@ jobs:
               @Override
               public void onCreate(Bundle savedInstanceState) {
                   registerPlugin(SharkBoostPlugin.class);
-                  super.onCreate(savedInstanceState);
-              }
-          }
-          JAVA
-          sed -i 's#<application#<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />\n    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />\n    <application#' android/app/src/main/AndroidManifest.xml
-          npx cap sync android
-
-      - name: Build debug APK
-        working-directory: android
-        run: ./gradlew assembleDebug
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: GameMind-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+                  super.onCreate(savedInstanceStat
