@@ -29,6 +29,7 @@ jobs:
 
       - name: Create fresh Android project
         run: |
+          npm install --no-save "@capacitor/cli@^8" "@capacitor/android@^8"
           rm -rf android
           npx cap add android
           mkdir -p android/app/src/main/java/com/sharkboost/app
